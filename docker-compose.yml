@@ -5,7 +5,7 @@ services:
     container_name: vaultwarden
     restart: unless-stopped
     ports:
-     - 9445:80 #map any custom port to use (replace 8445 not 80)
+     - "9445:80 #map any custom port to use (replace 8445 not 80)
     volumes:
      - ./bitwarden:/data:rw
     environment:
@@ -19,8 +19,3 @@ services:
      - SMTP_USERNAME=${SMTP_USERNAME}
      - SMTP_PASSWORD=${SMTP_PASSWORD}
      - DOMAIN=${DOMAIN}
-
-networks:
-  default:
-    external:
-      name: nginx-proxy-network
